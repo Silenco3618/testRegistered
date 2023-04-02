@@ -16,11 +16,10 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class InvalidAddCustomersTest {
+public class InvalidAddCustomersTest extends BaseTest {
 
     @Test
     public void addCustomerInEnglishFirstName() {
-
         ChooseTabs chooseTabs = new ChooseTabs(driver);
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
