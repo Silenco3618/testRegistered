@@ -11,23 +11,24 @@ import org.testng.annotations.AfterClass;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-        private static String PAGE_URL = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager";
-       private WebDriver driver;
 
-        @BeforeAll
-        static void setupAll() {
-            WebDriverManager.chromedriver().setup();
-        }
+    private static String PAGE_URL = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager";
+    private WebDriver driver;
 
-        @BeforeEach
-        public void setup() {
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--headless");
-            driver = new ChromeDriver();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        }
-        @AfterClass
+    @BeforeAll
+    static void setupAll() {
+        WebDriverManager.chromedriver().setup();
+    }
+
+    @BeforeEach
+    public void setup() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+    @AfterClass
     public void close() { driver.quit(); }
 }
