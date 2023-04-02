@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.test.BaseTest;
 import org.test.ChooseTabs;
 import org.test.Registration;
 
@@ -17,25 +18,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class InvalidAddCustomersTest {
 
-    private WebDriver driver;
-
-    @BeforeAll
-    static void setupAll() {
-        WebDriverManager.chromedriver().setup();
-    }
-
-    @BeforeEach
-    public void setup() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
-
     @Test
     public void addCustomerInEnglishFirstName() {
+        BaseTest baseTest = new BaseTest();
+        baseTest.setup();
+
         ChooseTabs chooseTabs = new ChooseTabs(driver);
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);

@@ -51,6 +51,5 @@ public class Registration {
         inputLastName(lName);
         inputPostCode(pCode);
         pressADDCustomer();
-        // pressOk();
     }
 }
