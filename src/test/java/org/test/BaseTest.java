@@ -11,8 +11,8 @@ import org.testng.annotations.AfterClass;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-        String PAGE_URL = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager";
-        WebDriver driver;
+        private static String PAGE_URL = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager";
+       private WebDriver driver;
 
         @BeforeAll
         static void setupAll() {
