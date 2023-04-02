@@ -20,8 +20,6 @@ public class InvalidAddCustomersTest {
 
     @Test
     public void addCustomerInEnglishFirstName() {
-        BaseTest baseTest = new BaseTest();
-        baseTest.setup();
 
         ChooseTabs chooseTabs = new ChooseTabs(driver);
         chooseTabs.clickAddCustomers();

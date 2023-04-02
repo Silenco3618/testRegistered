@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
     private static String PAGE_URL = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager";
-    private WebDriver driver;
+    public WebDriver driver;
 
     @BeforeAll
     static void setupAll() {

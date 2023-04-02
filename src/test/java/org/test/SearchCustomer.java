@@ -22,8 +22,18 @@ public class SearchCustomer {
         PageFactory.initElements(driver, this);
     }
 
-    public void setPressSearchCustomer(String sCustomer) {
+    public void setPressSearchFirstName() {
         pressSearchCustomer.click();
-        pressSearchCustomer.sendKeys(sCustomer);
+        pressSearchCustomer.sendKeys("Hermoine");
+    }
+
+    public void setPressSearchLastName() {
+        pressSearchCustomer.click();
+        pressSearchCustomer.sendKeys("Granger");
+    }
+
+    public void setPressSearchPostCode() {
+        pressSearchCustomer.click();
+        pressSearchCustomer.sendKeys("E55656");
     }
 }

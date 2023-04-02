@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.test.ChooseTabs;
+import org.test.Find;
 import org.test.Sort;
 import org.testng.Assert;
 
@@ -44,15 +45,8 @@ public class SortTest {
         chooseTabs.clickCustomers();
         Sort sort = new Sort(driver);
         sort.clickFirstName();
-        ArrayList<String> obtainedList = new ArrayList<>();
-        List<WebElement> listText = driver.findElements(By.xpath("//tbody[@class='ng-binding']"));
-        for(int i = 1; i + 3 < listText.size(); i++) {
-        }
-        ArrayList<String> sortedList = new ArrayList<>();
-        for(String s:obtainedList){
-            sortedList.add(s);
-        }
-        Collections.sort(sortedList);
+        Find find = new Find();
+        find.find();
         Collections.reverse(sortedList);
         Assert.assertTrue(sortedList.equals(obtainedList));
     }
@@ -65,15 +59,8 @@ public class SortTest {
         sort.clickFirstNameTwice();
         Sort sort2 = new Sort(driver);
         sort2.clickFirstNameTwice();
-        ArrayList<String> obtainedList = new ArrayList<>();
-        List<WebElement> listText = driver.findElements(By.xpath("//tbody[@class='ng-binding']"));
-        for(int i = 1; i + 3 < listText.size(); i++) {
-        }
-        ArrayList<String> sortedList = new ArrayList<>();
-        for(String s:obtainedList){
-            sortedList.add(s);
-        }
-        Collections.sort(sortedList);
+        Find find = new Find();
+        find.find();
         Assert.assertTrue(sortedList.equals(obtainedList));
     }
 }

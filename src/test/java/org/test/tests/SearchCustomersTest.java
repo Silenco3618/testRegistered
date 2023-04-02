@@ -39,7 +39,7 @@ public class SearchCustomersTest {
         ChooseTabs chooseTabs = new ChooseTabs(driver);
         chooseTabs.clickCustomers();
         SearchCustomer searchCustomer = new SearchCustomer(driver);
-        searchCustomer.setPressSearchCustomer("Hermoine");
+        searchCustomer.setPressSearchFirstName();
         String expected = "Hermoine";
         String actual = driver.findElement(By.xpath("//td[@class='ng-binding']")).getText().trim();
         assertEquals(expected, actual);
@@ -50,7 +50,7 @@ public class SearchCustomersTest {
         ChooseTabs chooseTabs = new ChooseTabs(driver);
         chooseTabs.clickCustomers();
         SearchCustomer searchCustomer = new SearchCustomer(driver);
-        searchCustomer.setPressSearchCustomer("Granger");
+        searchCustomer.setPressSearchLastName();
         String expected = "Granger";
         String actual = driver.findElement(By.xpath("//td[@class='ng-binding'][2]")).getText().trim();
         assertEquals(expected, actual);
@@ -60,7 +60,7 @@ public class SearchCustomersTest {
         ChooseTabs chooseTabs = new ChooseTabs(driver);
         chooseTabs.clickCustomers();
         SearchCustomer searchCustomer = new SearchCustomer(driver);
-        searchCustomer.setPressSearchCustomer("E55656");
+        searchCustomer.setPressSearchPostCode();
         String expected = "E55656";
         String actual = driver.findElement(By.xpath("//td[@class='ng-binding'][3]")).getText().trim();
         assertEquals(expected, actual);
