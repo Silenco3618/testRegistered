@@ -45,8 +45,8 @@ public class SortTest {
         chooseTabs.clickCustomers();
         Sort sort = new Sort(driver);
         sort.clickFirstName();
-        Find find = new Find();
-        find.find();
+        Sort sort1 = new Sort(driver);
+        sort1.find();
         Collections.reverse(sortedList);
         Assert.assertTrue(sortedList.equals(obtainedList));
     }
@@ -59,8 +59,8 @@ public class SortTest {
         sort.clickFirstNameTwice();
         Sort sort2 = new Sort(driver);
         sort2.clickFirstNameTwice();
-        Find find = new Find();
-        find.find();
+        Sort sort1 = new Sort(driver);
+        sort1.find();
         Assert.assertTrue(sortedList.equals(obtainedList));
     }
 }
