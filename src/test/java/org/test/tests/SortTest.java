@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 import java.util.Collections;
 
-/*
+
 public class SortTest extends BaseTest {
 
     @Test
@@ -34,4 +34,4 @@ public class SortTest extends BaseTest {
         sort1.find();
         Assert.assertTrue(sortedList.equals(obtainedList));
     }
-}*/
+}
