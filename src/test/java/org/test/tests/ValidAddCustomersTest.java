@@ -1,23 +1,11 @@
 package org.test.tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.test.BaseTest;
 import org.test.ChooseTabs;
 import org.test.Registration;
-import org.test.SearchCustomer;
-
-import java.util.concurrent.TimeUnit;
-import java.util.function.BooleanSupplier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValidAddCustomersTest extends BaseTest {
 
@@ -27,19 +15,10 @@ public class ValidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("Екатерина", "Иванова", "123456");
-        //ChooseTabs chooseTabs1 = new ChooseTabs(driver);
-        //chooseTabs1.clickCustomers();
-        //SearchCustomer searchCustomer = new SearchCustomer(driver);
-        //searchCustomer.setPressSearchCustomer("Екатерина");
-        // String expected = "Екатерина";
-        // String actual = driver.findElement(By.linkText("Екатерина")).getText().trim();
-        // assertEquals(expected, actual);
-        //assertTrue((BooleanSupplier) driver.findElement(By.linkText("Customer added successfully with customer id :6")));
+        String expected = "Customer added successfully with customer id :6";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
 
-
-        //String expected = "Customer added successfully with customer id :6";
-        //String actual = driver.findElement(By.xpath("//div[@ui-view class='ng-scope']::after")).getText().trim();
-        //assertEquals(expected, actual);
     }
 
     @Test
@@ -48,6 +27,9 @@ public class ValidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("Екатерина-Юлия", "Иванова", "123456");
+        String expected = "Customer added successfully with customer id :6";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -56,6 +38,9 @@ public class ValidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("Екатерина", "Иванова-Щербакова", "123456");
+        String expected = "Customer added successfully with customer id :6";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -64,6 +49,9 @@ public class ValidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("Екатерина", "Иванова", "12-3456");
+        String expected = "Customer added successfully with customer id :6";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -72,6 +60,9 @@ public class ValidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("Ек", "Иванова", "123456");
+        String expected = "Customer added successfully with customer id :6";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -80,6 +71,9 @@ public class ValidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("Екатерина", "Ив", "123456");
+        String expected = "Customer added successfully with customer id :6";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -88,5 +82,8 @@ public class ValidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("Екатериналбмиатвлюам", "Ивановаваияваяивиаяв", "123456");
+        String expected = "Customer added successfully with customer id :6";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 }

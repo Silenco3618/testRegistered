@@ -1,18 +1,9 @@
 package org.test.tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.test.BaseTest;
 import org.test.ChooseTabs;
 import org.test.Registration;
-
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -25,7 +16,7 @@ public class InvalidAddCustomersTest extends BaseTest {
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("Ekaterina", "Иванова", "123456");
         String expected = "Введите имя на русском языке";
-        String actual = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
+        String actual = driver.switchTo().alert().getText();
         assertEquals(expected, actual);
     }
 
@@ -34,7 +25,10 @@ public class InvalidAddCustomersTest extends BaseTest {
         ChooseTabs chooseTabs = new ChooseTabs(driver);
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
-        registration.inputRightRegistration("Ekaterina", "Ivanova", "123456");
+        registration.inputRightRegistration("Екатерина", "Ivanova", "123456");
+        String expected = "Введите фамилию на русском языке";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -43,6 +37,9 @@ public class InvalidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("Екатерина Юлия", "Иванова", "123456");
+        String expected = "Введите валидное имя";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -51,6 +48,9 @@ public class InvalidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("Екатерина", "Иванова Щербакова", "123456");
+        String expected = "Введите валидную фамилию";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -59,6 +59,9 @@ public class InvalidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("екатерина", "Иванова", "123456");
+        String expected = "Введите имя с большой буквы";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -67,14 +70,9 @@ public class InvalidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("Екатерина", "иванова", "123456");
-    }
-
-    @Test
-    public void addCustomerPageCodeSymbols() {
-        ChooseTabs chooseTabs = new ChooseTabs(driver);
-        chooseTabs.clickAddCustomers();
-        Registration registration = new Registration(driver);
-        registration.inputRightRegistration("Екатерина", "иванова", "123456");
+        String expected = "Введите фамилию с большой буквы";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -83,6 +81,9 @@ public class InvalidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("", "Иванова", "123456");
+        String expected = "Введите имя";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -91,6 +92,9 @@ public class InvalidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("Екатерина", "", "123456");
+        String expected = "Введите фамилию";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -99,5 +103,8 @@ public class InvalidAddCustomersTest extends BaseTest {
         chooseTabs.clickAddCustomers();
         Registration registration = new Registration(driver);
         registration.inputRightRegistration("Екатерина", "Иванова", "");
+        String expected = "Введите код";
+        String actual = driver.switchTo().alert().getText();
+        assertEquals(expected, actual);
     }
 }

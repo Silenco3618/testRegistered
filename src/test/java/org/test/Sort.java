@@ -1,6 +1,5 @@
 package org.test;
 
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,9 +29,7 @@ public class Sort {
         pressFirstName.click();
         pressFirstName.click();
     }
-    public void find() {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public ArrayList<String> find() {
         ArrayList<String> obtainedList = new ArrayList<>();
         List<WebElement> listText = driver.findElements(By.xpath("//tbody[@class='ng-binding']"));
         for (int i = 1; i + 3 < listText.size(); i++) {
@@ -42,5 +39,6 @@ public class Sort {
             sortedList.add(s);
         }
         Collections.sort(sortedList);
+        return sortedList;
     }
 }
